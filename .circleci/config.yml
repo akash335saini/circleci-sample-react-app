@@ -1,11 +1,11 @@
 version: 2.1
 orbs:
-  node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
 
 jobs:
   build_and_test: # this can be any name you choose
-    executor: node/default # use the default executor defined within the orb
+    docker:
+      - image: cimg/node:20.3.1 # use the default executor defined within the orb
     steps:
       - checkout
       - node/install-packages:
